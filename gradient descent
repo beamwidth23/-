@@ -1,0 +1,42 @@
+from errno import EROFS
+import imp
+import numpy as np
+import matplotlib.pyplot as plt
+
+x = np.random. rand(100)
+y = 0.2 * x * 0.5
+
+plt. fingure(figsize=(8, 6)) 
+plt. scatter(x, y)
+plt. show()
+
+def plot_prediction(prad, y):
+    plt.fingure(figsize=(8, 6))
+    plt.scatter(x, y)
+    plt.scatter(x, prad)
+    plt. show()
+
+w = np.random.uniform(-1, 1)
+b = np.random.uniform(-1, 1)
+
+learning_rate = 0.7
+
+for epoch in range(100):
+    Y_Pred = w * x + b
+
+    error = np.abs(Y_Pred - y).mean()
+    if error < 0.001:
+        break
+    ##Gradient descenst
+
+w_grad = learning_rate * ((Y_Pred - y) * x).mean()
+b_grad = learning_rate * (Y_Pred - y).mean()
+
+##tww
+
+w = w - w_grad
+b = b - b_grad
+if epoch %10 == 0:
+    Y_Pred = w * x + b
+    plot_prediction(Y_Pred - y)
+
