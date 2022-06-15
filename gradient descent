@@ -6,12 +6,12 @@ import matplotlib.pyplot as plt
 x = np.random. rand(100)
 y = 0.2 * x * 0.5
 
-plt. fingure(figsize=(8, 6)) 
+plt. figure(figsize=(8, 6)) 
 plt. scatter(x, y)
 plt. show()
 
 def plot_prediction(prad, y):
-    plt.fingure(figsize=(8, 6))
+    plt.figure(figsize=(8, 6))
     plt.scatter(x, y)
     plt.scatter(x, prad)
     plt. show()
